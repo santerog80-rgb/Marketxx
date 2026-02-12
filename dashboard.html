@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Usu\u00e1rio - MozCommerce</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-store"></i> MozCommerce
+                </a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-outline">Inicio</a>
+                <button class="btn btn-primary" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="container">
+        <div class="dashboard-content">
+            <!-- Sidebar -->
+            <aside class="dashboard-sidebar">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <img src="https://via.placeholder.com/100" alt="Avatar" id="userAvatar">
+                    </div>
+                    <h3 id="userName">Carregando...</h3>
+                    <p id="userEmail">carregando@email.com</p>
+                </div>
+
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="#" class="active" data-section="overview">
+                            <i class="fas fa-home"></i> Visao Geral
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="products">
+                            <i class="fas fa-box"></i> Meus Produtos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="add-product">
+                            <i class="fas fa-plus-circle"></i> Adicionar Produto
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="messages">
+                            <i class="fas fa-envelope"></i> Mensagens
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="favorites">
+                            <i class="fas fa-heart"></i> Favoritos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="profile">
+                            <i class="fas fa-user"></i> Meu Perfil
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="dashboard-main">
+                <!-- Overview Section -->
+                <section id="overview" class="dashboard-section active">
+                    <h2>Vis\u00e3o Geral</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="stat-number" id="totalProducts">0</div>
+                            <div class="stat-label">Produtos Ativos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="stat-number" id="totalViews">0</div>
+                            <div class="stat-label">Visualizações</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="stat-number" id="totalMessages">0</div>
+                            <div class="stat-label">Mensagens</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-number" id="avgRating">0</div>
+                            <div class="stat-label">Avaliação Media</div>
+                        </div>
+                    </div>
+
+                    <div class="recent-activity">
+                        <h3>Atividade Recente</h3>
+                        <div id="recentActivityList">
+                            <p>Carregando atividades...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- My Products Section -->
+                <section id="products" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Meus Produtos</h2>
+                        <a href="#" class="btn btn-primary" data-section="add-product">
+                            <i class="fas fa-plus"></i> Adicionar Produto
+                        </a>
+                    </div>
+                    <div id="myProductsList" class="products-grid">
+                        <div class="loading-spinner">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Carregando produtos...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Add Product Section -->
+                <section id="add-product" class="dashboard-section">
+                    <h2>Adicionar Novo Produto</h2>
+                    <form id="addProductForm">
+                        <div class="form-group">
+                            <label for="productTitle">Titulo do Produto</label>
+                            <input type="text" id="productTitle" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productCategory">Categoria</label>
+                            <select id="productCategory" class="form-control" required>
+                                <option value="">Selecione uma categoria</option>
+                                <!-- Categories will be loaded dynamically -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productPrice">Pre\u00e7o</label>
+                            <div class="price-input-group">
+                                <select id="productCurrency" class="form-control" style="width: 100px;">
+                                    <option value="MZN">MZN</option>
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="ZAR">ZAR</option>
+                                </select>
+                                <input type="number" id="productPrice" class="form-control" required step="0.01">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productCondition">Estado</label>
+                            <select id="productCondition" class="form-control" required>
+                                <option value="new">Novo</option>
+                                <option value="used">Usado</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productProvince">Prov\u00edncia</label>
+                            <select id="productProvince" class="form-control" required>
+                                <option value="">Selecione a prov\u00edncia</option>
+                                <option value="Maputo Cidade">Maputo Cidade</option>
+                                <option value="Maputo Prov\u00edncia">Maputo Prov\u00edncia</option>
+                                <option value="Gaza">Gaza</option>
+                                <option value="Inhambane">Inhambane</option>
+                                <option value="Sofala">Sofala</option>
+                                <option value="Manica">Manica</option>
+                                <option value="Tete">Tete</option>
+                                <option value="Zamb\u00e9zia">Zamb\u00e9zia</option>
+                                <option value="Nampula">Nampula</option>
+                                <option value="Niassa">Niassa</option>
+                                <option value="Cabo Delgado">Cabo Delgado</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productLocation">Localiza\u00e7\u00e3o</label>
+                            <input type="text" id="productLocation" class="form-control" placeholder="Bairro, rua ou ponto de refer\u00eancia">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productWhatsapp">WhatsApp</label>
+                            <input type="tel" id="productWhatsapp" class="form-control" placeholder="+258 84 123 4567">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productDescription">Descri\u00e7\u00e3o</label>
+                            <textarea id="productDescription" class="form-control" rows="6" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Fotos do Produto</label>
+                            <div class="image-upload">
+                                <input type="file" id="productImages" multiple accept="image/*">
+                                <div class="upload-placeholder">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Clique ou arraste as fotos aqui</p>
+                                    <small>M\u00e1ximo 10 fotos, 5MB cada</small>
+                                </div>
+                                <div class="upload-preview"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="productNegotiable">
+                                <span>Pre\u00e7o negoci\u00e1vel</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Publicar An\u00fancio
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Messages Section -->
+                <section id="messages" class="dashboard-section">
+                    <h2>Mensagens</h2>
+                    <div id="messagesList">
+                        <p>Nenhuma mensagem ainda.</p>
+                    </div>
+                </section>
+
+                <!-- Favorites Section -->
+                <section id="favorites" class="dashboard-section">
+                    <h2>Meus Favoritos</h2>
+                    <div id="favoritesList" class="products-grid">
+                        <p>Voc\u00ea ainda n\u00e3o tem favoritos.</p>
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profile" class="dashboard-section">
+                    <h2>Meu Perfil</h2>
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="profileName">Nome Completo</label>
+                            <input type="text" id="profileName" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profileEmail">Email</label>
+                            <input type="email" id="profileEmail" class="form-control" required readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profilePhone">Telefone</label>
+                            <input type="tel" id="profilePhone" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profileWhatsapp">WhatsApp</label>
+                            <input type="tel" id="profileWhatsapp" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profileProvince">Prov\u00edncia</label>
+                            <select id="profileProvince" class="form-control" required>
+                                <option value="">Selecione a prov\u00edncia</option>
+                                <option value="Maputo Cidade">Maputo Cidade</option>
+                                <option value="Maputo Prov\u00edncia">Maputo Prov\u00edncia</option>
+                                <option value="Gaza">Gaza</option>
+                                <option value="Inhambane">Inhambane</option>
+                                <option value="Sofala">Sofala</option>
+                                <option value="Manica">Manica</option>
+                                <option value="Tete">Tete</option>
+                                <option value="Zamb\u00e9zia">Zamb\u00e9zia</option>
+                                <option value="Nampula">Nampula</option>
+                                <option value="Niassa">Niassa</option>
+                                <option value="Cabo Delgado">Cabo Delgado</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profileBio">Sobre Mim</label>
+                            <textarea id="profileBio" class="form-control" rows="4"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Salvar Altera\u00e7\u00f5es
+                        </button>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

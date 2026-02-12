@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MozCommerce - Marketplace de Mocambique</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-store"></i> MozCommerce
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">In\u00edcio</a>
+                <a href="#" class="nav-link">Categorias</a>
+                <a href="#" class="nav-link">Ofertas</a>
+            </div>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar produtos...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="currency-selector">
+                    <select id="currencySelector">
+                        <option value="MZN">MZN</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="ZAR">ZAR</option>
+                        <option value="GBP">GBP</option>
+                    </select>
+                </div>
+                <a href="login.html" class="btn btn-outline" id="loginBtn">Entrar</a>
+                <a href="register.html" class="btn btn-primary" id="registerBtn">Cadastrar</a>
+                <a href="dashboard.html" class="btn btn-primary" id="dashboardBtn" style="display: none;">
+                    <i class="fas fa-user"></i>
+                </a>
+                <button class="btn btn-icon" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Compre e Venda em Mo\u00e7ambique</h1>
+                <p>O marketplace mais completo de Mo\u00e7ambique. Encontre tudo o que precisa!</p>
+                <div class="hero-actions">
+                    <a href="sell.html" class="btn btn-large btn-primary">Come\u00e7ar a Vender</a>
+                    <a href="#products" class="btn btn-large btn-outline">Explorar Produtos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Categorias Populares</h2>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Produtos em Destaque</h2>
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <select id="categoryFilter">
+                        <option value="">Todas as Categorias</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="sortFilter">
+                        <option value="newest">Mais Recentes</option>
+                        <option value="price-asc">Menor Pre\u00e7o</option>
+                        <option value="price-desc">Maior Pre\u00e7o</option>
+                        <option value="rating">Melhor Avaliados</option>
+                    </select>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded dynamically -->
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Carregando produtos...</p>
+                </div>
+            </div>
+            <div class="load-more">
+                <button class="btn btn-outline" id="loadMoreBtn">Carregar Mais</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Compras Seguras</h3>
+                    <p>Transa\u00e7\u00f5es protegidas e verificadas</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>Integra\u00e7\u00e3o WhatsApp</h3>
+                    <p>Contato direto com vendedores</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Sistema de Avalia\u00e7\u00f5es</h3>
+                    <p>Opini\u00f5es reais de compradores</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>M\u00faltiplas Moedas</h3>
+                    <p>MZN, USD, EUR, ZAR e mais</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>MozCommerce</h3>
+                    <p>O marketplace de confian\u00e7a em Mo\u00e7ambique</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Links \u00dateis</h4>
+                    <ul>
+                        <li><a href="#">Sobre N\u00f3s</a></li>
+                        <li><a href="#">Como Comprar</a></li>
+                        <li><a href="#">Como Vender</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Pol\u00edtica de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contato@mozcommerce.mz</li>
+                        <li><i class="fas fa-phone"></i> +258 84 123 4567</li>
+                        <li><i class="fab fa-whatsapp"></i> +258 84 123 4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MozCommerce. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - MozCommerce</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1><i class="fas fa-store"></i> MozCommerce</h1>
+                <p>Crie sua conta para come\u00e7ar a comprar e vender</p>
+            </div>
+
+            <form id="registerForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="registerName">Nome Completo</label>
+                    <input type="text" id="registerName" class="form-control" placeholder="Seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" class="form-control" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerPhone">Telefone (WhatsApp)</label>
+                    <input type="tel" id="registerPhone" class="form-control" placeholder="+258 84 123 4567" required>
+                    <small class="form-text">Usaremos este n\u00famero para contato via WhatsApp</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerPassword">Senha</label>
+                    <input type="password" id="registerPassword" class="form-control" placeholder="M\u00ednimo 6 caracteres" minlength="6" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Confirmar Senha</label>
+                    <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Digite a senha novamente" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerProvince">Prov\u00edncia</label>
+                    <select id="registerProvince" class="form-control" required>
+                        <option value="">Selecione a prov\u00edncia</option>
+                        <option value="Maputo Cidade">Maputo Cidade</option>
+                        <option value="Maputo Prov\u00edncia">Maputo Prov\u00edncia</option>
+                        <option value="Gaza">Gaza</option>
+                        <option value="Inhambane">Inhambane</option>
+                        <option value="Sofala">Sofala</option>
+                        <option value="Manica">Manica</option>
+                        <option value="Tete">Tete</option>
+                        <option value="Zamb\u00e9zia">Zamb\u00e9zia</option>
+                        <option value="Nampula">Nampula</option>
+                        <option value="Niassa">Niassa</option>
+                        <option value="Cabo Delgado">Cabo Delgado</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerCity">Cidade</label>
+                    <input type="text" id="registerCity" class="form-control" placeholder="Sua cidade" required>
+                </div>
+
+                <div class="form-group">
+                    <label style="font-weight: normal; display: flex; align-items: flex-start; gap: 8px;">
+                        <input type="checkbox" id="registerTerms" required>
+                        <span>Concordo com os <a href="#" style="color: var(--primary-color);">Termos de Uso</a> e <a href="#" style="color: var(--primary-color);">Pol\u00edtica de Privacidade</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-user-plus"></i> Criar Conta
+                </button>
+
+                <div class="auth-links">
+                    <p>J\u00e1 tem uma conta? <a href="login.html">Fa\u00e7a login</a></p>
+                </div>
+            </form>
+
+            <div class="auth-footer">
+                <a href="index.html" class="btn btn-link">
+                    <i class="fas fa-arrow-left"></i> Voltar ao In\u00edcio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

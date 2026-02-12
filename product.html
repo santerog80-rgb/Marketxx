@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto - MozCommerce</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-store"></i> MozCommerce
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">In\u00edcio</a>
+                <a href="#" class="nav-link">Categorias</a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline" id="loginBtn">Entrar</a>
+                <a href="dashboard.html" class="btn btn-primary" id="dashboardBtn" style="display: none;">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-grid">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <img id="mainImage" src="https://via.placeholder.com/600x400" alt="Produto" class="main-image">
+                    <div class="thumbnail-grid" id="thumbnailGrid">
+                        <!-- Thumbnails will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <h1 id="productTitle">Carregando...</h1>
+                    <div class="product-meta">
+                        <span class="product-category" id="productCategory">-</span>
+                        <span class="product-location" id="productLocation">
+                            <i class="fas fa-map-marker-alt"></i> -
+                        </span>
+                        <span class="product-date" id="productDate">-</span>
+                    </div>
+
+                    <div class="product-detail-price" id="productPrice">MT 0,00</div>
+
+                    <div class="product-rating" id="productRating">
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(0 avalia\u00e7\u00f5es)</span>
+                    </div>
+
+                    <div class="product-condition">
+                        <span id="productCondition">-</span>
+                    </div>
+
+                    <div class="product-seller">
+                        <div class="seller-avatar">
+                            <img src="https://via.placeholder.com/50" alt="Vendedor">
+                        </div>
+                        <div class="seller-info">
+                            <h4 id="sellerName">-</h4>
+                            <span id="sellerLocation">-</span>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-whatsapp btn-large" id="whatsappBtn">
+                            <i class="fab fa-whatsapp"></i> Contactar no WhatsApp
+                        </button>
+                        <button class="btn btn-outline btn-large" id="favoriteBtn">
+                            <i class="far fa-heart"></i> Adicionar aos Favoritos
+                        </button>
+                        <button class="btn btn-secondary btn-large" id="shareBtn">
+                            <i class="fas fa-share-alt"></i> Compartilhar
+                        </button>
+                    </div>
+
+                    <div class="product-description">
+                        <h3>Descri\u00e7\u00e3o</h3>
+                        <div id="productDescription">Carregando descri\u00e7\u00e3o...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <section class="reviews-section" id="reviews">
+                <h2>Avalia\u00e7\u00f5es do Produto</h2>
+                
+                <!-- Add Review Form -->
+                <div class="add-review-form" id="addReviewForm">
+                    <h3>Deixe sua Avalia\u00e7\u00e3o</h3>
+                    <form id="reviewForm">
+                        <div class="form-group">
+                            <label>Classifica\u00e7\u00e3o</label>
+                            <div class="star-rating" id="starRating">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewComment">Coment\u00e1rio</label>
+                            <textarea id="reviewComment" class="form-control" rows="4" placeholder="Escreva sua avalia\u00e7\u00e3o..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Avalia\u00e7\u00e3o</button>
+                    </form>
+                </div>
+
+                <!-- Reviews List -->
+                <div class="reviews-list" id="reviewsList">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Carregando avalia\u00e7\u00f5es...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related Products -->
+            <section class="related-products">
+                <h2>Produtos Relacionados</h2>
+                <div class="products-grid" id="relatedProducts">
+                    <!-- Related products will be loaded dynamically -->
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 MozCommerce. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/product.js"></script>
+</body>
+</html>
